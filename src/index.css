@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +8,104 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* For Sticky Top Bar */
+.wbdv-sticky-top {
+  position: fixed;
+  width: 100%;
+  background-color: lightsteelblue;
+  z-index: 1;
+}
+
+.wbdv-text-center {
+  text-align: center;
+}
+
+.wbdv-padding-5px {
+  padding: 5px;
+}
+
+.wbdv-margin-top-5px {
+  margin-top: 5px;
+}
+
+.wbdv-margin-left-10px {
+  margin-left: 10px;
+}
+
+.wbdv-margin-right-45px {
+  margin-right: 45px;
+}
+
+.wbdv-hide-sm-screen{
+  display: block;
+}
+
+@media (max-width: 1080px)
+{
+  .wbdv-hide-sm-screen
+  {
+    display: none;
+  }
+}
+
+.wbdv-nowrap {
+  white-space: nowrap;
+}
+
+.wbdv-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wbdv-row.center {
+  justify-content: center;
+}
+
+/* Image */
+img {
+  border-radius: 0.5rem;
+}
+img.medium{
+  max-width: 29rem;
+  width: 100%;
+}
+
+/* Card */
+.card {
+  border: 0.1rem #c0c0c0 solid;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.card-body {
+  padding: 1rem;
+}
+.card-body >*{
+  margin-bottom: 0.5rem;
+}
+
+/* Price */
+.price {
+  font-size: 1.2rem;
+}
+
+/* Rating */
+.rating span {
+  color: gold;
+  margin: 0.1rem;
+}
+
+.rating span:last-child {
+  color: #282c34;
 }
