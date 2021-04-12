@@ -72,12 +72,16 @@ code {
   justify-content: center;
 }
 
+
 /* Image */
 img {
   border-radius: 0.5rem;
 }
 img.medium{
   max-width: 29rem;
+  width: 100%;
+}
+img.large {
   width: 100%;
 }
 
@@ -87,6 +91,7 @@ img.medium{
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
+  width: fit-content;
 }
 .card-body {
   padding: 1rem;
@@ -98,6 +103,7 @@ img.medium{
 /* Price */
 .price {
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /* Rating */
@@ -108,4 +114,41 @@ img.medium{
 
 .rating span:last-child {
   color: #282c34;
+}
+
+/* For List */
+ul {
+  padding: 5%;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-left: 1rem;
+}
+
+/* For Button */
+button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.15rem #c0c0c0 solid;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 0.15rem #282c34 solid;
+}
+
+.wbdv-primary-button {
+  background-color: gold;
+}
+
+.wbdv-primary-button.block {
+  width: 100%;
 }
