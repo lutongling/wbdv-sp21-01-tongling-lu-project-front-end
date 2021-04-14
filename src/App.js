@@ -3,6 +3,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import HomeScreen from "./components/screen/home-screen";
 import DetailScreen from "./components/screen/detail-screen";
 import Search from "./components/screen/search-screen";
+import CartScreen from "./components/screen/cart-screen";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           </Route>
           <Route path="/" exact={true} component={HomeScreen}/>
           <Route path="/product/:pid" component={DetailScreen}/>
+          <Route path="/cart/:pid?" component={CartScreen}/>
 
           {/*<div className="wbdv-bgcolor-darkblue wbdv-sticky-top wbdv-padding-5px wbdv-text-center">*/}
           {/*    <div className="row">*/}

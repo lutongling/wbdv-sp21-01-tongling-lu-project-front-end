@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react'
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useHistory} from "react-router-dom";
 import Rating from "../rating";
 import productService from "../../services/product-service"
 
 const DetailScreen = () => {
     const {pid} = useParams();
     const [product, setProduct] = useState({})
+    const [quantity, setQuantity] = useState(1)
+    const history = useHistory()
     useEffect(() => {
         productService.findProductById(pid)
             .then(product => setProduct(product))
@@ -47,15 +49,25 @@ const DetailScreen = () => {
                                 <div className="price">${product.price}</div>
                             </div>
 
-                            {/*<div className="wbdv-row">Status*/}
-                            {/*    <div>*/}
-                            {/*        {product.countInStock>0 ? (<span className="text-success font-weight-bold">In Stock</span> )*/}
-                            {/*                                : (<span className="text-danger font-weight-bold">&nbsp; Unavailable</span>)}*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                            <div className="wbdv-row">
+                                <div>Qty</div>
+                                <div>
+                                    <select value={quantity}
+                                            onChange={e => {setQuantity(e.target.value)}}>
+                                        {
+                                            [...Array(50).keys()].map(num => (
+                                                <option key={num+1} value={num+1}>
+                                                    {num + 1}
+                                                </option>
+                                            ))
 
+                                        }
+                                    </select>
+                                </div>
+                            </div>
                             <div className="wbdv-row center">
-                                <button className="wbdv-primary-button block">Add to Cart</button>
+                                <button onClick={() => history.push(`/cart/${pid}?quantity=${quantity}`)}
+                                        className="wbdv-primary-button block">Add to Cart</button>
                             </div>
 
                         </div>
