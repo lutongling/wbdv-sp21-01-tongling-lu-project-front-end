@@ -38,10 +38,10 @@ const Search = () => {
                        className="fas fa-search fa-2x"></i>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-hide-sm-screen">
-                    <i href="/cart" className="fas fa-shopping-cart fa-2x">&nbsp; Cart {cartItems.length}</i>
+                    <Link to="/cart" className="fas fa-shopping-cart fa-2x">&nbsp; Cart {cartItems.length}</Link>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-nowrap wbdv-hide-sm-screen">
-                    <i href="/signin" className="fas fa-sign-in-alt fa-2x">&nbsp; Sign In</i>
+                    <Link to="/signin" className="fas fa-sign-in-alt fa-2x">&nbsp; Sign In</Link>
                 </div>
             </div>
 
