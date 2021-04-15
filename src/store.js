@@ -3,7 +3,14 @@ import {applyMiddleware, createStore, compose, combineReducers} from "redux";
 import thunk from "redux-thunk";
 import cartReducer from "./reducers/cart-reducer";
 
-const initialState = {}
+const initialState = {
+    // can move if db built
+    cart: {
+        cartItems: localStorage.getItem('cartItems')
+                   ? JSON.parse(localStorage.getItem('cartItems'))
+                   : []
+    }
+}
 
 // const reducer = (state, action) => {
 //     return {products: productService.findAllProducts}

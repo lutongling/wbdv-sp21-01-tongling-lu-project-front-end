@@ -1,18 +1,21 @@
 import productService from "../services/product-service"
+import {useEffect, useState} from "react";
+import Axios from "axios";
 
 export const ADD_ITEM = "ADD_ITEM";
 
-export const addItem = (dispatch, pid, qty) => {
-    const product = productService.findProductById(pid)
+export const addItem = (pid, qty) => async (dispatch, getState) => {
+    const {data} = await Axios.get(`/api/products/${pid}`)
+    console.log(data)
     dispatch({
-        type: ADD_ITEM,
-        payload: {
-            name: product.name,
-            image_link: product.image_link,
-            price: product.price,
-            product: product._id,
-            qty,
-        }
+                type: ADD_ITEM,
+                payload: {
+                    name: data.name,
+                    image_link: data.image_link,
+                    price: data.price,
+                    product: data.id,
+                    qty
+                }
              })
-
+    localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
