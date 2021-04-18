@@ -3,7 +3,7 @@ import {Link, useHistory} from 'react-router-dom'
 import userService from '../../services/user-service'
 
 const Register = () => {
-    const [credentials, setCredentials] = useState({username: '', password: ''})
+    const [credentials, setCredentials] = useState({username: '', password: '', role: 'BUYER'})
     const history = useHistory()
     const register = () => {
         userService.register(credentials)
@@ -17,31 +17,60 @@ const Register = () => {
             })
     }
     return(
-        <div>
+        <div className="container">
             <h1>Register</h1>
-            <input
-                value={credentials.username}
-                onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
-                className="form-control"
-                placeholder="username"/>
-            <input
-                // type="password"
-                value={credentials.password}
-                onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
-                className="form-control"
-                placeholder="password"/>
+            <br/>
+            <div className="mb-3 row">
+                <label className="col-sm-2 col-form-label">
+                    Username
+                </label>
+                <div className="col-sm-10">
+                    <input
+                        value={credentials.username}
+                        onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                        className="form-control"
+                        placeholder="username"/>
+                </div>
+            </div>
 
-            {/*<input*/}
-            {/*    // type="password"*/}
-            {/*    value={credentials.validate}*/}
-            {/*    onChange={(e) => {setCredentials({...credentials, validate: e.target.value})}}*/}
-            {/*    className="form-control"*/}
-            {/*    placeholder="validate password"/>*/}
+            <br/>
+            <div className="mb-3 row">
+                <label className="col-sm-2 col-form-label">
+                    Password
+                </label>
+                <div className="col-sm-10">
+                    <input
+                        value={credentials.password}
+                        onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                        className="form-control"
+                        placeholder="password"/>
 
+                </div>
+            </div>
+
+            <br/>
+
+            <div className="mb-3 row">
+                <label htmlFor="role"
+                       className="col-sm-2 col-form-label">
+                    Role
+                </label>
+                <div className="col-sm-10">
+                    <select id="role" className="form-control"
+                            onChange={(e) => setCredentials({...credentials, role: e.target.value.toString()})}>
+                        <option>BUYER</option>
+                        <option>SELLER</option>
+                        <option>ADMIN</option>
+                    </select>
+                </div>
+            </div>
+
+            <br/>
             <button onClick={register} className="btn btn-primary">
                 Register
             </button>
-            <Link to="/login">
+
+            <Link className="float-right" to="/login">
                 Login
             </Link>
         </div>
