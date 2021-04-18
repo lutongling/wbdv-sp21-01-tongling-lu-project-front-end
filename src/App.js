@@ -4,18 +4,37 @@ import HomeScreen from "./components/screen/home-screen";
 import DetailScreen from "./components/screen/detail-screen";
 import Search from "./components/screen/search-screen";
 import CartScreen from "./components/screen/cart-screen";
+import Login from "./components/screen/login-screen";
+import Register from "./components/screen/register-screen";
+import Profile from "./components/screen/profile-screen";
 
 function App() {
   return (
       <BrowserRouter>
-          <Route
-              exact={true}
-              path={["/", "/search", "/search/:title"]}>
-              <Search/>
-          </Route>
-          <Route path="/" exact={true} component={HomeScreen}/>
-          <Route path="/product/:pid" component={DetailScreen}/>
-          <Route path="/cart/:pid?" component={CartScreen}/>
+          <div className="container-fluid">
+              <Route
+                  exact={true}
+                  path={["/", "/search", "/search/:title"]}>
+                  <Search/>
+              </Route>
+              <Route path="/" exact={true}>
+                  <HomeScreen/>
+              </Route>
+              {/*<Route path="/" exact={true} component={HomeScreen}/>*/}
+              <Route path="/product/:pid" component={DetailScreen}/>
+              <Route path="/cart/:pid?" component={CartScreen}/>
+              <Route path="/login" exact={true}>
+                  <Login/>
+              </Route>
+              <Route path="/register" exact={true}>
+                  <Register/>
+              </Route>
+              {/*<Route path="/login" component={LoginScreen}/>*/}
+              {/*<Route path="/register" component={Register}/>*/}
+              <Route path="/profile" exact={true}>
+                  <Profile/>
+              </Route>
+
 
           {/*<div className="wbdv-bgcolor-darkblue wbdv-sticky-top wbdv-padding-5px wbdv-text-center">*/}
           {/*    <div className="row">*/}
@@ -47,8 +66,8 @@ function App() {
           {/*    <Route path="/" exact={true} component={HomeScreen}/>*/}
           {/*    <Route path="/product/:id" component={DetailScreen}/>*/}
           {/*</div>*/}
+          </div>
       </BrowserRouter>
-
   );
 }
 

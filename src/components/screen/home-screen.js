@@ -13,6 +13,7 @@ const HomeScreen = () => {
 
     return(
         <div>
+            <br/>
             <div className="row wbdv-row center">
                 {
                     products.map((product) => {
