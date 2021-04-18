@@ -34,7 +34,10 @@ const Search = () => {
                            value={searchTitle}/>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px">
-                    <i onClick={() => history.push(`/search/${searchTitle}`)}
+                    <i onClick={() => {
+                        history.push(`/search/${searchTitle}`)
+                        console.log(results.length)
+                    }}
                        className="fas fa-search fa-2x"></i>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-hide-sm-screen">

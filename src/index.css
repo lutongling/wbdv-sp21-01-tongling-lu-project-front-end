@@ -98,7 +98,7 @@ img.large {
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
-  width: fit-content;
+  width: -moz-fit-content;
 }
 .card-body {
   padding: 1rem;
@@ -165,4 +165,8 @@ button:hover {
 
 .wbdv-primary-button.block {
   width: 100%;
+}
+
+.wbdv-lg-text {
+  font-size: x-large;
 }

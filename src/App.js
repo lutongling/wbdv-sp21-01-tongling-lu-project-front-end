@@ -21,7 +21,7 @@ function App() {
                   <HomeScreen/>
               </Route>
               {/*<Route path="/" exact={true} component={HomeScreen}/>*/}
-              <Route path="/product/:pid" component={DetailScreen}/>
+              <Route path="/details/:pid" component={DetailScreen}/>
               <Route path="/cart/:pid?" component={CartScreen}/>
               <Route path="/login" exact={true}>
                   <Login/>
