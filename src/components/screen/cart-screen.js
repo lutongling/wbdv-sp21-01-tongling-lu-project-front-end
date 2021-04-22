@@ -29,8 +29,9 @@ const CartScreen = (props) => {
     // }
 
     const checkoutHandler = () => {
-        // if sign in, should direct to shipping page
-        history.push(`/signin?redirec=shipping`);
+        // if log in, should different
+        history.push(`/login`)
+        // history.push(`/login?redirec=shipping`);
     }
     return(
         <div className="row wbdv-row">

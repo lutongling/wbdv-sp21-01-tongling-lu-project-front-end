@@ -70,7 +70,7 @@ const Register = () => {
                 Register
             </button>
 
-            <Link className="float-right" to="/login">
+            <Link className="float-right font-weight-bolder text-info" to="/login">
                 Login
             </Link>
         </div>

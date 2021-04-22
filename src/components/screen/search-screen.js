@@ -31,7 +31,8 @@ const Search = () => {
                 <div className="col-6">
                     <input onChange={e => {setSearchTitle(e.target.value)}}
                            className="form-control"
-                           value={searchTitle}/>
+                           value={searchTitle}
+                           placeholder="Search a brand for makeups!"/>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px">
                     <i onClick={() => {

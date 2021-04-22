@@ -32,7 +32,7 @@ const register = (credentials) => {
 }
 
 const logout = () => {
-    return fetch(`${USER_API}`, {
+    return fetch(`${USER_API}/logout`, {
         method: "POST",
         credentials: "include"
     })

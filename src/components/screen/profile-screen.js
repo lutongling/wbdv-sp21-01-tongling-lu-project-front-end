@@ -19,7 +19,7 @@ const Profile = () => {
             .then(() => {
                 setCurrentUser({})
             })
-        // history.push("/")
+        history.push("/")
     }
 
     return(

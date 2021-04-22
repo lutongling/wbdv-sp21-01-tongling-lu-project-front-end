@@ -18,24 +18,44 @@ const Login = () => {
     }
 
     return(
-        <div>
+        <div className="container">
             <h1>Login</h1>
-            <input
-                value={credentials.username}
-                onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
-                className="form-control"
-                placeholder="username"/>
-            <input
-                value={credentials.password}
-                onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
-                className="form-control"
-                placeholder="password"/>
+
+            <div className="mb-3 row">
+                <label className="col-sm-2 col-form-label">
+                    Username
+                </label>
+                <div className="col-sm-10">
+                    <input
+                        value={credentials.username}
+                        onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                        className="form-control"
+                        placeholder="username"/>
+                </div>
+            </div>
+
+            <div className="mb-3 row">
+                <label className="col-sm-2 col-form-label">
+                    Password
+                </label>
+                <div className="col-sm-10">
+                    <input
+                        value={credentials.password}
+                        onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                        className="form-control"
+                        placeholder="password"/>
+                </div>
+            </div>
+
+            <br/>
             <button
                 onClick={login}
                 className="btn btn-primary">
                 Login
             </button>
-            <Link to="/register">
+
+            <Link to="/register"
+                  className="float-right font-weight-bolder text-success">
                 Register
             </Link>
         </div>
