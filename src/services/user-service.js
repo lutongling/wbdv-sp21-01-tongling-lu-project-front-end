@@ -1,5 +1,10 @@
 const USER_API = "http://localhost:7000/api/users";
 
+const findUserById = (uid) => {
+    return fetch(`${USER_API}/${uid}`)
+        .then(response => response.json())
+}
+
 const profile = () => {
     return fetch(`${USER_API}/profile`, {
         method: "POST",
@@ -40,18 +45,18 @@ const logout = () => {
 }
 
 const updateProfile = (user) => {
-    return fetch(`${USER_API}/register`, {
+    return fetch(`${USER_API}/${user._id}`, {
         method: "PUT",
-        credentials: "include",
         body: JSON.stringify(user),
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            // 'Accept': 'application/json'
         }
     })
         .then(response => response.json())
-        // .then(result => console.log(result))
+        .then(result => console.log(result))
 }
 
 export default {
-    register, login, logout, profile, updateProfile
+    register, login, logout, profile, updateProfile, findUserById
 }

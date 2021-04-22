@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
 import userService from '../../services/user-service'
 
 const Profile = () => {
-    // const [currentUser, setCurrentUser] = useState({username: '', password: ''})
     const [currentUser, setCurrentUser] = useState({})
     useEffect(() => {
         userService.profile()
             .then((currentUser) => {
                 setCurrentUser(currentUser)
             })
+
     }, [])
 
     const history = useHistory()

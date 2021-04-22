@@ -7,6 +7,7 @@ import CartScreen from "./components/screen/cart-screen";
 import Login from "./components/screen/login-screen";
 import Register from "./components/screen/register-screen";
 import Profile from "./components/screen/profile-screen";
+import ProfileLogout from "./components/screen/profile-logout-screen";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
                   <Profile/>
               </Route>
 
+              <Route path="/profile/:uid" exact={true}>
+                  <ProfileLogout/>
+              </Route>
 
           {/*<div className="wbdv-bgcolor-darkblue wbdv-sticky-top wbdv-padding-5px wbdv-text-center">*/}
           {/*    <div className="row">*/}
