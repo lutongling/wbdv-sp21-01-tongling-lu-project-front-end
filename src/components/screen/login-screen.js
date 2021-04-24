@@ -10,7 +10,7 @@ const Login = () => {
             .then((user) => {
                 console.log(user)
                 if(user === 0) {
-                    alert("login failed, try again")
+                    alert("login failed, incorrect username or password!")
                 } else {
                     history.push("/profile")
                 }

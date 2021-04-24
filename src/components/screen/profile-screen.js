@@ -5,6 +5,7 @@ import userService from '../../services/user-service'
 const Profile = () => {
     const [currentUser, setCurrentUser] = useState({})
     useEffect(() => {
+
         userService.profile()
             .then((currentUser) => {
                 setCurrentUser(currentUser)
@@ -85,14 +86,14 @@ const Profile = () => {
                 Object.keys(currentUser).length !== 0 &&
                 <div className="mb-3 row">
                     <label htmlFor="phone"
-                           className="col-sm-2 col-form-label"
-                           value={currentUser.phone}>
+                           className="col-sm-2 col-form-label">
                         Phone
                     </label>
                     <div className="col-sm-10">
                         <input type="tel"
                                className="form-control"
                                id="phone"
+                               value={currentUser.phone}
                                placeholder="(555)123-4324"
                                onChange={(e) => setCurrentUser({...currentUser, phone: e.target.value})}/>
                     </div>
@@ -139,7 +140,14 @@ const Profile = () => {
                            className="col-sm-2 col-form-label">
                     </label>
                     <div className="col-sm-10">
-                        <button onClick={() => userService.updateProfile(currentUser)}
+                        <button onClick={() => {
+                                                userService.updateProfile(currentUser)
+                                                        .then(() => {
+                                                            setCurrentUser(currentUser)
+                                                        })
+                                                // setCurrentUser(currentUser)
+                                                alert("updated successfully!")
+                                        }}
                                 className="btn btn-success btn-block">
                             Update
                         </button>
