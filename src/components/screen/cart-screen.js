@@ -1,9 +1,11 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link, useHistory, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {addItem, deleteItem} from "../../actions/cart-actions";
+import userService from "../../services/user-service";
 
 const CartScreen = (props) => {
+    const [currentUser, setCurrentUser] = useState({})
     const {pid} = useParams();
     const qty = props.location.search
                 ? Number(props.location.search.split('=')[1])
@@ -14,8 +16,16 @@ const CartScreen = (props) => {
     // extract the cart info from the Redux store state
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart;
-
     console.log(cartItems)
+
+    // get the state of login/out
+    useEffect(() => {
+        userService.profile()
+            .then((currentUser) => {
+                setCurrentUser(currentUser)
+                console.log(currentUser)
+            })
+    },[])
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -29,10 +39,16 @@ const CartScreen = (props) => {
     // }
 
     const checkoutHandler = () => {
-        // if log in, should different
-        history.push(`/login`)
-        // history.push(`/login?redirec=shipping`);
+        if (Object.keys(currentUser).length === 0) {
+            alert("Sorry. You should login/register first!")
+            history.push("/login")
+        } else {
+            alert("Ordered successful!")
+            history.push("/order")
+        }
+
     }
+
     return(
         <div className="row wbdv-row">
             <div className="col-10">

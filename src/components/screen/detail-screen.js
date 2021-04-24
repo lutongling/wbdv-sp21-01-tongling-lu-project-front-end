@@ -87,6 +87,13 @@ const DetailScreen = () => {
                         </div>
                     </div>
                 </div>
+
+                {/*<div>*/}
+                {/*    <h2 id="reviews">Reviews</h2>*/}
+                {/*    {!product.reviews &&*/}
+                {/*     (<h5>There is no Review</h5>)}*/}
+                {/*</div>*/}
+
             </div>
 
         </div>
