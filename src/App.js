@@ -9,6 +9,7 @@ import Register from "./components/screen/register-screen";
 import Profile from "./components/screen/profile-screen";
 import ProfileLogout from "./components/screen/profile-logout-screen";
 import Order from "./components/screen/order-screen";
+import Seller from "./components/screen/seller-screen";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
               </Route>
               {/*<Route path="/" exact={true} component={HomeScreen}/>*/}
               <Route path="/details/:pid" component={DetailScreen}/>
-              <Route path="/cart/:pid?" component={CartScreen}/>
+              <Route path="/cart/:uid?" component={CartScreen}/>
               <Route path="/login" exact={true}>
                   <Login/>
               </Route>
@@ -43,6 +44,10 @@ function App() {
 
               <Route path="/order" exact={true}>
                   <Order/>
+              </Route>
+
+              <Route path="/seller" exact={true}>
+                  <Seller/>
               </Route>
 
           {/*<div className="wbdv-bgcolor-darkblue wbdv-sticky-top wbdv-padding-5px wbdv-text-center">*/}

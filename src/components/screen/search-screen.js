@@ -3,11 +3,13 @@ import productService from "../../services/product-service"
 import {useParams, useHistory, Link} from "react-router-dom";
 import Product from "../product";
 import {useSelector} from "react-redux";
+import userService from "../../services/user-service";
 
 const Search = () => {
     const {title} = useParams()
     const [searchTitle, setSearchTitle] = useState("")
     const [results, setResults] = useState([])
+    const [currentUser, setCurrentUser] = useState({})
     const history = useHistory()
 
     const cart = useSelector((state) => state.cart);
@@ -19,6 +21,12 @@ const Search = () => {
             productService.findProductByTitle(title)
                 .then(results => setResults(results))
         }
+
+        userService.profile()
+            .then((currentUser) => {
+                setCurrentUser(currentUser)
+            })
+
     }, [title])
 
     return(
@@ -42,7 +50,7 @@ const Search = () => {
                        className="fas fa-search fa-2x"></i>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-hide-sm-screen">
-                    <Link to="/cart" className="fas fa-shopping-cart fa-2x">&nbsp; Cart {cartItems.length}</Link>
+                    <Link to={`/cart/${currentUser._id}`} className="fas fa-shopping-cart fa-2x">&nbsp; Cart {cartItems.length}</Link>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-nowrap wbdv-hide-sm-screen">
                     <Link to="/login" className="fas fa-sign-in-alt fa-2x">&nbsp; Log In</Link>

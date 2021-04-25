@@ -1,4 +1,5 @@
 const PRODUCTS_URL = "http://localhost:7000/api/products"
+const PRODUCTS_URL_DB = "http://localhost:7000/api/products_db"
 
 // This is to implement the Search Component/Functionality and using a third-party open source API
 const findProductByTitle =(title) =>
@@ -16,8 +17,16 @@ const findAllProducts = () => {
         .then(response => response.json())
 }
 
+const findProductBySellerId = (sid) => {
+    return fetch(`${PRODUCTS_URL_DB}/user/${sid}`)
+        .then(response => response.json())
+        .then(result => console.log(result))
+}
+
+
 export default {
     findAllProducts,
     findProductByTitle,
-    findProductById
+    findProductById,
+    findProductBySellerId
 }

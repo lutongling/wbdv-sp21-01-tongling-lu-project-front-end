@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {useHistory, useParams} from 'react-router-dom'
+import {Link, useHistory, useParams} from 'react-router-dom'
 import userService from '../../services/user-service'
 
 const Profile = () => {
@@ -157,6 +157,15 @@ const Profile = () => {
                             className="btn btn-primary btn-block">
                             Logout
                         </button>
+
+                        {
+                            currentUser.role === "SELLER" &&
+                            <Link to="/seller"
+                                  className="float-right font-weight-bolder text-danger wbdv-lg-text">
+                                Seller Products Management
+                            </Link>
+                        }
+
                     </div>
                 </div>
             }

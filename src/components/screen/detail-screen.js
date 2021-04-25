@@ -2,16 +2,31 @@ import React, {useEffect, useState} from 'react'
 import {Link, useParams, useHistory} from "react-router-dom";
 import Rating from "../rating";
 import productService from "../../services/product-service"
+import userService from "../../services/user-service";
 
 const DetailScreen = () => {
     const {pid} = useParams();
     const [product, setProduct] = useState({})
     const [quantity, setQuantity] = useState(1)
+    const [currentUser, setCurrentUser] = useState({})
     const history = useHistory()
+
     useEffect(() => {
+
+        userService.profile()
+            .then((currentUser) => {
+                setCurrentUser(currentUser)
+            })
+
         productService.findProductById(pid)
             .then(product => setProduct(product))
-    })
+
+    }, [])
+
+    // useEffect(() => {
+    //     productService.findProductById(pid)
+    //         .then(product => setProduct(product))
+    // })
 
     // const goBack = () => {
     //     history.goBack()
@@ -79,7 +94,7 @@ const DetailScreen = () => {
                                     </div>
                                 </div>
                                 <div className="wbdv-row center">
-                                    <button onClick={() => history.push(`/cart/${pid}?quantity=${quantity}`)}
+                                    <button onClick={() => history.push(`/cart/${currentUser._id}`)}
                                             className="wbdv-primary-button block">Add to Cart</button>
                                 </div>
 
