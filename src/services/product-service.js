@@ -17,10 +17,27 @@ const findAllProducts = () => {
         .then(response => response.json())
 }
 
-const findProductBySellerId = (sid) => {
+const findProductsBySellerId = (sid) => {
     return fetch(`${PRODUCTS_URL_DB}/user/${sid}`)
         .then(response => response.json())
-        .then(result => console.log(result))
+        // .then(result => console.log(result))
+}
+
+const findAllProducts_DB =() => {
+    return fetch(PRODUCTS_URL_DB)
+        .then(response => response.json())
+}
+
+const createProduct = (product) => {
+    fetch(`${PRODUCTS_URL_DB}`, {
+        method: "POST",
+        // credentials: "include",
+        body: JSON.stringify(product),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
 }
 
 
@@ -28,5 +45,7 @@ export default {
     findAllProducts,
     findProductByTitle,
     findProductById,
-    findProductBySellerId
+    findProductsBySellerId,
+    findAllProducts_DB,
+    createProduct
 }

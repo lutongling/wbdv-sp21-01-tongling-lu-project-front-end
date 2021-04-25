@@ -44,7 +44,8 @@ const DetailScreen = () => {
 
                 <div className="row">
                     <div className="col-lg-5 col-sm-8 col-xs-12">
-                        <img className="medium" src={product.image_link} alt={product.name}/>
+                        <img className="medium" src={product.image_link}
+                             onError={(event) => event.target.style.display = 'none'}/>
                     </div>
                     <div className="col-lg-3 col-sm-8 col-xs-12">
                         <ul>
@@ -94,7 +95,7 @@ const DetailScreen = () => {
                                     </div>
                                 </div>
                                 <div className="wbdv-row center">
-                                    <button onClick={() => history.push(`/cart/${currentUser._id}`)}
+                                    <button onClick={() => history.push(`/cart/${pid}?quantity=${quantity}`)}
                                             className="wbdv-primary-button block">Add to Cart</button>
                                 </div>
 

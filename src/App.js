@@ -25,7 +25,7 @@ function App() {
               </Route>
               {/*<Route path="/" exact={true} component={HomeScreen}/>*/}
               <Route path="/details/:pid" component={DetailScreen}/>
-              <Route path="/cart/:uid?" component={CartScreen}/>
+              <Route path="/cart/:pid?/:uid?" component={CartScreen}/>
               <Route path="/login" exact={true}>
                   <Login/>
               </Route>

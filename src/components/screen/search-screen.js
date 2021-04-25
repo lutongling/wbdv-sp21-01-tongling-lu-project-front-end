@@ -50,7 +50,7 @@ const Search = () => {
                        className="fas fa-search fa-2x"></i>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-hide-sm-screen">
-                    <Link to={`/cart/${currentUser._id}`} className="fas fa-shopping-cart fa-2x">&nbsp; Cart {cartItems.length}</Link>
+                    <Link to={`/cart/:pid?/${currentUser._id}`} className="fas fa-shopping-cart fa-2x">&nbsp; Cart {cartItems.length}</Link>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-nowrap wbdv-hide-sm-screen">
                     <Link to="/login" className="fas fa-sign-in-alt fa-2x">&nbsp; Log In</Link>

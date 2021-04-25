@@ -12,6 +12,13 @@ const createOrder = (order) => {
         .then(response => response.json())
 }
 
+// const findOrderByUserId = (uid) => {
+//     return fetch(`${ORDER_API}/${uid}`)
+//         .then(response => response.json())
+//         .then(result => console.log(result))
+// }
+
 export default {
-    createOrder
+    createOrder,
+    // findOrderByUserId
 }

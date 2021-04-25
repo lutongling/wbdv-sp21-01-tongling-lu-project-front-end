@@ -11,7 +11,8 @@ const Product = ({product}) => {
             <Link to={`/details/${product.id}`}>
                 <img className="medium"
                      src={product.image_link}
-                     alt={product.name}/>
+                     onError={(event) => event.target.style.display = 'none'}
+                     />
             </Link>
             <div className="card-body">
                 <Link to={`/details/${product.id}`}>
