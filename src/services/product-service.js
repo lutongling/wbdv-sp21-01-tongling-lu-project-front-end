@@ -40,6 +40,17 @@ const createProduct = (product) => {
         .then(response => response.json())
 }
 
+const deleteProduct = (product) =>
+    fetch(`${PRODUCTS_URL_DB}`, {
+        method: "DELETE",
+        body: JSON.stringify(product),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+
+
 
 export default {
     findAllProducts,
@@ -47,5 +58,6 @@ export default {
     findProductById,
     findProductsBySellerId,
     findAllProducts_DB,
-    createProduct
+    createProduct,
+    deleteProduct
 }

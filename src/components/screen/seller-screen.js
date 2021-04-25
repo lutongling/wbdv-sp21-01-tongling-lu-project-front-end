@@ -9,10 +9,16 @@ const Seller = () => {
     const [newProduct, setNewProduct] = useState({});
 
     const sellerId = currentUser._id;
+    const is_managed = true
 
     const refreshPage = () => {
         window.location.reload();
     }
+
+    // const deleteProduct = () => {
+    //     productService.deleteProduct()
+    //         .then(result => console.log(result))
+    // }
 
     useEffect(() => {
         setNewProduct.user = sellerId;
@@ -108,7 +114,10 @@ const Seller = () => {
                         products.map((product) => {
                             return(
                                 <Product key={product._id}
-                                         product={product}/>
+                                         product={product}
+                                         is_managed={is_managed}
+                                         // deleteProduct={deleteProduct}
+                                />
                             )
                         })
                     }
