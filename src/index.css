@@ -204,3 +204,26 @@ button:hover {
 .wbdv-product-price-color {
   color: PaleVioletRed;
 }
+
+.wbdv-bg-logout {
+  background-color: LightCoral;
+  color: floralwhite;
+  font-weight: bold;
+  font-family: "Lucida Fax";
+}
+
+.wbdv-bg-update {
+  background-color: LightSeaGreen;
+  color: floralwhite;
+  font-weight: bold;
+  font-family: "Lucida Fax";
+}
+
+.wbdv-view-order {
+  color: MediumSlateBlue;
+  font-family: "Segoe UI Historic";
+}
+
+.wbdv-color-lavender {
+  color: MediumSlateBlue;
+}

@@ -25,9 +25,17 @@ const Profile = () => {
 
     return(
         <div>
-            <h1>Profile</h1>
-            {JSON.stringify(currentUser)}
-            <h3>Welcome {currentUser.username}</h3>
+            <Link className="fas fa-3x fa-home wbdv-color-light-salmon"
+                  to="/">
+            </Link>
+
+        <div className="container">
+            <br/>
+            <h1 className="font-weight-bolder">Profile</h1>
+            {/*{JSON.stringify(currentUser)}*/}
+            <h3 className="font-weight-bolder">Welcome
+                <span className="wbdv-color-light-salmon font-weight-bolder"> {currentUser.username} !</span>
+            </h3>
 
             <br/>
             <br/>
@@ -35,7 +43,7 @@ const Profile = () => {
             <br/>
 
             <div className="mb-3 row">
-                <label className="col-sm-2 col-form-label">
+                <label className="col-sm-2 col-form-label font-weight-bolder">
                     Username
                 </label>
                 <div className="col-sm-10">
@@ -50,7 +58,7 @@ const Profile = () => {
             {
                 Object.keys(currentUser).length !== 0 &&
                 <div className="mb-3 row">
-                    <label className="col-sm-2 col-form-label">
+                    <label className="col-sm-2 col-form-label font-weight-bolder">
                         First Name
                     </label>
                     <div className="col-sm-10">
@@ -67,7 +75,7 @@ const Profile = () => {
             {
                 Object.keys(currentUser).length !== 0 &&
                 <div className="mb-3 row">
-                    <label className="col-sm-2 col-form-label">
+                    <label className="col-sm-2 col-form-label font-weight-bolder">
                         Last Name
                     </label>
                     <div className="col-sm-10">
@@ -86,7 +94,7 @@ const Profile = () => {
                 Object.keys(currentUser).length !== 0 &&
                 <div className="mb-3 row">
                     <label htmlFor="phone"
-                           className="col-sm-2 col-form-label">
+                           className="col-sm-2 col-form-label font-weight-bolder">
                         Phone
                     </label>
                     <div className="col-sm-10">
@@ -104,7 +112,7 @@ const Profile = () => {
 
             <div className="mb-3 row">
                 <label htmlFor="email"
-                       className="col-sm-2 col-form-label">
+                       className="col-sm-2 col-form-label font-weight-bolder">
                     Email
                 </label>
                 <div className="col-sm-10">
@@ -120,7 +128,7 @@ const Profile = () => {
 
             <div className="mb-3 row">
                 <label htmlFor="role"
-                       className="col-sm-2 col-form-label">
+                       className="col-sm-2 col-form-label font-weight-bolder">
                     Role
                 </label>
                 <div className="col-sm-10">
@@ -148,29 +156,42 @@ const Profile = () => {
                                                 // setCurrentUser(currentUser)
                                                 alert("updated successfully!")
                                         }}
-                                className="btn btn-success btn-block">
+                                className="btn wbdv-bg-update btn-block">
                             Update
                         </button>
 
                         <button
                             onClick={logout}
-                            className="btn btn-primary btn-block">
+                            className="btn wbdv-bg-logout btn-block">
                             Logout
                         </button>
 
+                        <br/>
                         {
                             currentUser.role === "SELLER" &&
                             <Link to="/seller"
-                                  className="float-right font-weight-bolder text-danger wbdv-lg-text">
-                                Seller Products Management
+                                  className="fas fa-paperclip float-right font-weight-bolder wbdv-color-lavender wbdv-lg-text">
+                                <span className="font-weight-bolder wbdv-color-lavender wbdv-view-order">
+                                    &nbsp; Seller Products Management</span>
                             </Link>
                         }
+
+                        {
+                            currentUser.role === "BUYER" &&
+                            <Link to="/order"
+                                  className="fas fa-truck float-right font-weight-bolder wbdv-lg-text wbdv-color-lavender">
+                                <span className="font-weight-bolder wbdv-color-lavender wbdv-view-order">
+                                    &nbsp; View My Orders</span>
+                            </Link>
+                        }
+
 
                     </div>
                 </div>
             }
 
 
+        </div>
         </div>
     )
 }

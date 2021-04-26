@@ -17,11 +17,18 @@ const Register = () => {
             })
     }
     return(
+        <div>
+
+            <Link className="fas fa-3x fa-home wbdv-color-light-salmon"
+                  to="/">
+            </Link>
+
         <div className="container">
-            <h1>Register</h1>
+            <br/>
+            <h1 className="font-weight-bolder">Register</h1>
             <br/>
             <div className="mb-3 row">
-                <label className="col-sm-2 col-form-label">
+                <label className="col-sm-2 col-form-label font-weight-bolder">
                     Username
                 </label>
                 <div className="col-sm-10">
@@ -35,7 +42,7 @@ const Register = () => {
 
             <br/>
             <div className="mb-3 row">
-                <label className="col-sm-2 col-form-label">
+                <label className="col-sm-2 col-form-label font-weight-bolder">
                     Password
                 </label>
                 <div className="col-sm-10">
@@ -52,7 +59,7 @@ const Register = () => {
 
             <div className="mb-3 row">
                 <label htmlFor="role"
-                       className="col-sm-2 col-form-label">
+                       className="col-sm-2 col-form-label font-weight-bolder">
                     Role
                 </label>
                 <div className="col-sm-10">
@@ -73,6 +80,7 @@ const Register = () => {
             <Link className="float-right font-weight-bolder text-info" to="/login">
                 Login
             </Link>
+        </div>
         </div>
     )
 }
