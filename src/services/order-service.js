@@ -27,8 +27,22 @@ const deleteOrder = (order) =>
     })
         .then(response => response.json())
 
+const updateOrder = (order) => {
+    return fetch(`${ORDER_API}`, {
+        method: "PUT",
+        body: JSON.stringify(order),
+        headers: {
+            'content-type': 'application/json',
+            // 'Accept': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(result => console.log(result))
+}
+
 export default {
     createOrder,
     deleteOrder,
+    updateOrder,
     findAllOrders_DB
 }

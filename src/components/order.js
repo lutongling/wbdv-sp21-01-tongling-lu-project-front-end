@@ -10,6 +10,15 @@ const Order = ({order, products, price}) => {
         window.location.reload();
     }
 
+    const savePrice = () => {
+        setEditing(false)
+        const newOrder = {
+            ...order,
+            totalPrice: newPrice
+        }
+        orderService.updateOrder(newOrder)
+    }
+
     return (
         <tr>
             <td>
@@ -42,7 +51,9 @@ const Order = ({order, products, price}) => {
                                 className="fas fa-2x fa-times text-danger float-right"></i>}
                 { !editing && <i onClick={() => setEditing(true)}
                                  className="fas fa-2x fa-edit text-primary float-right"></i>}
-                { editing && <i
+                { editing && <i onClick={() => {savePrice()
+                                                refreshPage()
+                                                alert("updated successfully!")}}
                                 className="fas fa-2x fa-check text-success wbdv-margin-right-10px float-right"></i> }
             </td>
 
