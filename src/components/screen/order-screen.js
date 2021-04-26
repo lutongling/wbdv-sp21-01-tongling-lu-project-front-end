@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import orderService from "../../services/order-service";
 import Order from "../order";
+import {useHistory} from "react-router-dom";
 
 const OrderScreen = () => {
     const [orders, setOrders] = useState([]);
+    const history = useHistory()
 
     useEffect(() => {
         orderService.findAllOrders_DB()
@@ -13,8 +15,13 @@ const OrderScreen = () => {
     }, [])
 
     return (
+        <div>
+            <button className="fas fa-2x fa-arrow-left"
+                    onClick={history.goBack}>
+            </button>
         <div className="container">
-            <h1> Order Screen</h1>
+            <h1 className="font-weight-bolder">Your Orders</h1>
+            <br/>
             <table className="table">
                 <thead>
                 <tr>
@@ -38,6 +45,7 @@ const OrderScreen = () => {
                     }
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }

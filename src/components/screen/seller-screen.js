@@ -2,11 +2,13 @@ import React, {useEffect, useState} from 'react'
 import Product from "../product";
 import userService from "../../services/user-service";
 import productService from "../../services/product-service"
+import {useHistory} from "react-router-dom";
 
 const Seller = () => {
     const [products, setProducts] = useState([]);
     const [currentUser, setCurrentUser] = useState({})
     const [newProduct, setNewProduct] = useState({});
+    const history = useHistory()
 
     const sellerId = currentUser._id;
     const is_managed = true
@@ -38,12 +40,15 @@ const Seller = () => {
 
     return (
         <div>
-            <h1>Seller Product Management</h1>
-            {/*{currentUser._id}*/}
+            <button className="fas fa-2x fa-arrow-left"
+                    onClick={history.goBack}>
+            </button>
+        <div className="container">
+            <h1 className="font-weight-bolder wbdv-text-italic">Seller Product Management</h1>
             <br/>
             <div className="container">
                 <div className="mb-3 row">
-                    <label className="col-sm-2 col-form-label">
+                    <label className="col-sm-2 col-form-label font-weight-bolder">
                         Product Name
                     </label>
                     <div className="col-sm-10">
@@ -54,16 +59,7 @@ const Seller = () => {
                     <br/>
                     <br/>
 
-                    {/*<label className="col-sm-2 col-form-label">*/}
-                    {/*    Image URL*/}
-                    {/*</label>*/}
-                    {/*<div className="col-sm-10">*/}
-                    {/*    <input type="text"*/}
-                    {/*           className="form-control"*/}
-                    {/*           onChange={(e) => setNewProduct({...newProduct, image: e.target.value})}/>*/}
-                    {/*</div>*/}
-
-                    <label className="col-sm-2 col-form-label">
+                    <label className="col-sm-2 col-form-label font-weight-bolder">
                         Rating
                     </label>
                     <div className="col-sm-10">
@@ -74,7 +70,7 @@ const Seller = () => {
                     <br/>
                     <br/>
 
-                    <label className="col-sm-2 col-form-label">
+                    <label className="col-sm-2 col-form-label font-weight-bolder">
                         Price
                     </label>
                     <div className="col-sm-10">
@@ -94,7 +90,9 @@ const Seller = () => {
                                 alert("product created!")
                                 refreshPage()
                             }}
-                            className="fas fa-plus fa-2x float-right">&nbsp; Add Product</button>
+                            className="btn wbdv-bg-update btn-block">&nbsp;
+                            <span>Add Product</span>
+                        </button>
                     </div>
 
                 </div>
@@ -106,7 +104,7 @@ const Seller = () => {
             <br/>
             <br/>
 
-            <h3>Products Already Added</h3>
+            <h4 className="wbdv-text-italic">Products Already Added</h4>
             {
                 Object.keys(currentUser).length !== 0 &&
                 <div className="row wbdv-row center">
@@ -124,6 +122,7 @@ const Seller = () => {
                 </div>
             }
 
+        </div>
         </div>
     )
 }

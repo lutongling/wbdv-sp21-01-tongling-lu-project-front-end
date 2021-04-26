@@ -227,3 +227,12 @@ button:hover {
 .wbdv-color-lavender {
   color: MediumSlateBlue;
 }
+
+.wbdv-text-italic {
+  font-family: "Lucida Fax";
+}
+
+.wbdv-position-center {
+  text-align: center;
+  position: center;
+}
