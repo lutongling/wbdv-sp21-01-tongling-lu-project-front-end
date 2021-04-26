@@ -12,13 +12,23 @@ const createOrder = (order) => {
         .then(response => response.json())
 }
 
-// const findOrderByUserId = (uid) => {
-//     return fetch(`${ORDER_API}/${uid}`)
-//         .then(response => response.json())
-//         .then(result => console.log(result))
-// }
+const findAllOrders_DB =() => {
+    return fetch(ORDER_API)
+        .then(response => response.json())
+}
+
+const deleteOrder = (order) =>
+    fetch(`${ORDER_API}`, {
+        method: "DELETE",
+        body: JSON.stringify(order),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
 
 export default {
     createOrder,
-    // findOrderByUserId
+    deleteOrder,
+    findAllOrders_DB
 }

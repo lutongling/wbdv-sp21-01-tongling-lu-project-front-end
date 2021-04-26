@@ -8,7 +8,7 @@ import Login from "./components/screen/login-screen";
 import Register from "./components/screen/register-screen";
 import Profile from "./components/screen/profile-screen";
 import ProfileLogout from "./components/screen/profile-logout-screen";
-import Order from "./components/screen/order-screen";
+import OrderScreen from "./components/screen/order-screen";
 import Seller from "./components/screen/seller-screen";
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
               </Route>
 
               <Route path="/order" exact={true}>
-                  <Order/>
+                  <OrderScreen/>
               </Route>
 
               <Route path="/seller" exact={true}>
