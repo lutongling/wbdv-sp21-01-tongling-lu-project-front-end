@@ -1,5 +1,8 @@
 const PRODUCTS_URL = "http://localhost:7000/api/products"
+// const PRODUCTS_URL = "http://wbdv-tongling-project-backend.herokuapp.com/api/products"
+
 const PRODUCTS_URL_DB = "http://localhost:7000/api/products_db"
+// const PRODUCTS_URL_DB = "http://wbdv-tongling-project-backend.herokuapp.com/api/products_db"
 
 // This is to implement the Search Component/Functionality and using a third-party open source API
 const findProductByTitle =(title) =>

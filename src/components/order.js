@@ -5,6 +5,7 @@ const Order = ({order, products, price}) => {
     console.log(products)
     const [editing, setEditing] = useState(false)
     const [newPrice, setNewPrice] = useState(price)
+    // const [updateOrder, setUpdateOrder] = useState(order)
 
     const refreshPage = () => {
         window.location.reload();
@@ -19,9 +20,15 @@ const Order = ({order, products, price}) => {
         orderService.updateOrder(newOrder)
     }
 
+    // const delete_handler = () => {
+    //     orderService.deleteOrder(order)
+    //         .then(() => setUpdateOrder(...updateOrder, ))
+    // }
+
     return (
         <tr>
             <td>
+                {/*{updateOrder._id}*/}
                 {order._id}
             </td>
             <td>
@@ -44,6 +51,7 @@ const Order = ({order, products, price}) => {
 
             <td>
                 { editing && <i onClick={() => {
+                    // delete_handler()
                     orderService.deleteOrder(order)
                     refreshPage()
                     alert("deleted successfully!")

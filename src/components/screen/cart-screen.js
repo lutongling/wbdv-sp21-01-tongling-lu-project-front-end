@@ -109,7 +109,7 @@ const CartScreen = (props) => {
                 </ul>
             </div>
             <div className="col-xl-2 col-lg-5">
-                <div className="card card-body">
+                <div className="card card-body wbdv-width">
                     <ul>
                         <li>
                             <h2>

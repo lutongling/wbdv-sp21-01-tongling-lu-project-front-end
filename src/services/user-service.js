@@ -1,4 +1,5 @@
 const USER_API = "http://localhost:7000/api/users";
+// const USER_API = "http://wbdv-tongling-project-backend.herokuapp.com/api/users";
 
 const findUserById = (uid) => {
     return fetch(`${USER_API}/${uid}`)
@@ -8,7 +9,7 @@ const findUserById = (uid) => {
 const profile = () => {
     return fetch(`${USER_API}/profile`, {
         method: "POST",
-        credentials: "include"
+        credentials: "include",
     }).then(response => response.json())
 }
 

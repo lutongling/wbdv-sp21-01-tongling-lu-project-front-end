@@ -252,3 +252,7 @@ button:hover {
   font-family: "Segoe UI Historic";
   color: indigo;
 }
+
+.wbdv-width {
+  width: 15rem;
+}

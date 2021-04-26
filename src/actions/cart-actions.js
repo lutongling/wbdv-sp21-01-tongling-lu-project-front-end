@@ -11,7 +11,7 @@ export const ADD_ITEM = "ADD_ITEM";
 export const DELETE_ITEM = "DELETE_ITEM"
 
 export const addItem = (pid, qty) => async (dispatch, getState) => {
-    const {data} = await Axios.get(`/api/products/${pid}`)
+    const {data} = await Axios.get(`http://wbdv-tongling-project-backend.herokuapp.com/api/products/${pid}`)
     console.log(data)
     dispatch({
                 type: ADD_ITEM,
