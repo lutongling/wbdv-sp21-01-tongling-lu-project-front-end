@@ -58,7 +58,7 @@ const CartScreen = (props) => {
 
     }
     return(
-        <div className="row wbdv-row">
+        <div className="container-fluid row wbdv-row">
             <div className="col-10">
                 <h1>Shopping Cart</h1>
                 <ul>

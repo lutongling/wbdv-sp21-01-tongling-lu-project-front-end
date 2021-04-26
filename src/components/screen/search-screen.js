@@ -33,10 +33,12 @@ const Search = () => {
         <div>
             <div className="row wbdv-bgcolor-darkblue wbdv-sticky-top wbdv-padding-5px wbdv-text-center">
                 <div
-                    className="col-2 wbdv-margin-right-45px">
-                    <h3>Treasure Hunter</h3>
+                    className="col-2 wbdv-margin-right-45px wbdv-margin-top-5px">
+                    <h3>
+                        <a className="wbdv-text-home-logo" href="/">Treasure Hunter</a>
+                    </h3>
                 </div>
-                <div className="col-6">
+                <div className="col-6 wbdv-margin-top-5px">
                     <input onChange={e => {setSearchTitle(e.target.value)}}
                            className="form-control"
                            value={searchTitle}
@@ -47,14 +49,31 @@ const Search = () => {
                         history.push(`/search/${searchTitle}`)
                         console.log(results.length)
                     }}
-                       className="fas fa-search fa-2x"></i>
+                       className="fas fa-search fa-2x wbdv-color-mint"></i>
                 </div>
                 <div className="col-1 wbdv-margin-top-5px wbdv-hide-sm-screen">
-                    <Link to={`/cart/:pid?/${currentUser._id}`} className="fas fa-shopping-cart fa-2x">&nbsp; Cart {cartItems.length}</Link>
+                    <Link to={`/cart/:pid?/${currentUser._id}`} className="fas fa-shopping-cart fa-2x wbdv-color-light-salmon">
+                        &nbsp; <span className="wbdv-text-icon">Cart</span>
+                    </Link>
                 </div>
-                <div className="col-1 wbdv-margin-top-5px wbdv-nowrap wbdv-hide-sm-screen">
-                    <Link to="/login" className="fas fa-sign-in-alt fa-2x">&nbsp; Log In</Link>
-                </div>
+
+                {
+                    Object.keys(currentUser).length === 0 &&
+                    <div className="col-1 wbdv-margin-top-5px wbdv-nowrap wbdv-hide-sm-screen">
+                        <Link to="/login" className="fas fa-sign-in-alt fa-2x wbdv-color-light-salmon">
+                            &nbsp; <span className="wbdv-text-icon">Log In</span>
+                        </Link>
+                    </div>
+                }
+
+                {
+                    Object.keys(currentUser).length !== 0 &&
+                    <div className="col-1 wbdv-margin-top-5px wbdv-nowrap wbdv-hide-sm-screen">
+                        <Link to="/profile" className="far fa-user-circle fa-2x wbdv-color-light-salmon">
+                            &nbsp; <span className="wbdv-text-icon">Profile</span>
+                        </Link>
+                    </div>
+                }
             </div>
 
             <br/>

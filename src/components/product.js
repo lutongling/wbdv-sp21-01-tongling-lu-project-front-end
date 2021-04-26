@@ -5,6 +5,7 @@ import productService from "../services/product-service";
 
 const Product = ({product, is_managed}) => {
     const [editing, setEditing] = useState(false)
+    const [newProduct, setNewProduct] = useState({product})
 
     const refreshPage = () => {
         window.location.reload();
@@ -22,14 +23,61 @@ const Product = ({product, is_managed}) => {
                 }
                 {
                     is_managed && editing &&
+                    <span>
+                    <i onClick={() => {
+                        productService.updateProduct(newProduct)
+                            .then(() => {
+                                setNewProduct(newProduct)
+                            })
+                        refreshPage()
+                        alert("updated successfully!")
+                    }}
+                       className="fas fa-2x fa-check text-success float-right"></i>
+
                     <i onClick={() => {
                         console.log(product)
                         productService.deleteProduct(product)
                         refreshPage()
                         alert("deleted successfully!")
                     }}
-                        className="fas fa-2x fa-times text-danger float-right"></i>
+                       className="fas fa-2x fa-times text-danger float-right"></i>
+                    </span>
                 }
+
+                {
+                    is_managed && editing &&
+                    <h6>Name</h6>
+                }
+                {
+                    is_managed && editing &&
+                    <input className="wbdv-sm-input"
+                           onChange={(e) => setNewProduct({...product, name: e.target.value})}/>
+                }
+
+                <br/>
+
+                {
+                    is_managed && editing &&
+                    <h6>Rating</h6>
+                }
+                {
+                    is_managed && editing &&
+                    <input className="wbdv-sm-input"
+                           onChange={(e) => setNewProduct({...product, rating: e.target.value})}/>
+                }
+
+                <br/>
+
+                {
+                    is_managed && editing &&
+                    <h6>Price</h6>
+                }
+                {
+                    is_managed && editing &&
+                    <input className="wbdv-sm-input"
+                           onChange={(e) => setNewProduct({...product, price: e.target.value})}/>
+                }
+
                 <Link to={`/details/${product.id}`}>
                     <img className="medium"
                          src={product.image_link}
@@ -41,7 +89,7 @@ const Product = ({product, is_managed}) => {
                         <h5>{product.name}</h5>
                     </Link>
                     <Rating rating={product.rating}/>
-                    <div className="price">
+                    <div className="price wbdv-product-price-color">
                         ${product.price}
                     </div>
                 </div>

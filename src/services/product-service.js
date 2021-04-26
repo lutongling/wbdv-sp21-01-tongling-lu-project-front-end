@@ -50,6 +50,18 @@ const deleteProduct = (product) =>
     })
         .then(response => response.json())
 
+const updateProduct = (product) => {
+    return fetch(`${PRODUCTS_URL_DB}`, {
+        method: "PUT",
+        body: JSON.stringify(product),
+        headers: {
+            'content-type': 'application/json',
+            // 'Accept': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(result => console.log(result))
+}
 
 
 export default {
@@ -59,5 +71,6 @@ export default {
     findProductsBySellerId,
     findAllProducts_DB,
     createProduct,
-    deleteProduct
+    deleteProduct,
+    updateProduct
 }

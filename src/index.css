@@ -21,8 +21,31 @@ code {
 .wbdv-sticky-top {
   position: fixed;
   width: 100%;
-  background-color: lightsteelblue;
+  background-color: slategray;
   z-index: 1;
+  border-bottom: 0.5rem mistyrose solid;
+}
+
+.wbdv-text-home-logo {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: LightSalmon;
+  font-family: "Ink Free"
+  /*font-family: "Bauhaus 93";*/
+}
+
+.wbdv-color-light-salmon {
+  color: LightSalmon;
+}
+
+.wbdv-text-icon {
+  /*font-family: "Bell MT"*/
+  font-family: "Segoe UI Historic";
+  font-size: 25px;
+}
+
+.wbdv-color-mint {
+  color: mintcream;
 }
 
 .wbdv-text-center {
@@ -94,7 +117,8 @@ img.large {
 
 /* Card */
 .card {
-  border: 0.1rem #c0c0c0 solid;
+  border: none;
+  /*border: 0.1rem #c0c0c0 solid;*/
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
@@ -169,4 +193,14 @@ button:hover {
 
 .wbdv-lg-text {
   font-size: x-large;
+}
+
+.wbdv-sm-input {
+  width: 10rem;
+  height: 2rem;
+  position: center;
+}
+
+.wbdv-product-price-color {
+  color: PaleVioletRed;
 }
