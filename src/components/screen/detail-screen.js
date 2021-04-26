@@ -94,9 +94,10 @@ const DetailScreen = () => {
                                         </select>
                                     </div>
                                 </div>
+                                <br/>
                                 <div className="wbdv-row center">
                                     <button onClick={() => history.push(`/cart/${pid}?quantity=${quantity}`)}
-                                            className="wbdv-primary-button block">Add to Cart</button>
+                                            className="wbdv-primary-button block wbdv-addToCart">Add to Cart</button>
                                 </div>
 
                             </div>

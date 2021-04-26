@@ -58,9 +58,15 @@ const CartScreen = (props) => {
 
     }
     return(
-        <div className="container-fluid row wbdv-row">
-            <div className="col-10">
-                <h1>Shopping Cart</h1>
+        <div className="container-fluid">
+            <Link className="fas fa-3x fa-home wbdv-color-light-salmon"
+                  to="/">
+            </Link>
+        <div className="row wbdv-row">
+            <div className="col-xl-10 col-lg-12">
+                <br/>
+                <br/>
+                <h1 className="font-weight-bolder">Shopping Cart</h1>
                 <ul>
                     {
                         cartItems.map(i => (
@@ -69,7 +75,7 @@ const CartScreen = (props) => {
                                     <div className="col-2">
                                         <img src={i.image_link} className="small"/>
                                     </div>
-                                    <div className="col-2">
+                                    <div className="col-2 font-weight-bolder">
                                         <Link to={`/product/${i.product}`}>
                                             {i.name}
                                         </Link>
@@ -86,32 +92,32 @@ const CartScreen = (props) => {
                                             }
                                         </select>
                                     </div>
-                                    <div className="col-2">
+                                    <div className="col-2 font-weight-bolder">
                                         ${i.price}
                                     </div>
                                     <div className="col-2">
                                         <button type="button"
-                                                onClick={() => dispatch(deleteItem(i.product))}>
+                                                onClick={() => dispatch(deleteItem(i.product))}
+                                                className="btn wbdv-bg-logout btn-block">
                                             Delete Item
                                         </button>
                                     </div>
-
                                 </div>
                             </li>
                         ))
                     }
                 </ul>
             </div>
-            <div className="col-2">
+            <div className="col-xl-2 col-lg-5">
                 <div className="card card-body">
                     <ul>
                         <li>
                             <h2>
-                                Subtotal <br/>
-                                <h4>
-                                ({cartItems.reduce((a, c) => parseInt(a) + parseInt(c.qty), 0)} items) :
-                                </h4>
-
+                                <span className="wbdv-text-italic">Subtotal: </span>
+                                <br/>
+                                {/*<h4>*/}
+                                {/*({cartItems.reduce((a, c) => parseInt(a) + parseInt(c.qty), 0)} items) :*/}
+                                {/*</h4>*/}
                                 <h4 className="font-weight-bolder text-danger">
                                 $
                                 {
@@ -122,18 +128,20 @@ const CartScreen = (props) => {
                                 </h4>
                             </h2>
                         </li>
+                        <br/>
                         <li>
                             <button type="button"
                                     className="wbdv-primary-button block"
                                     disabled={cartItems.length === 0}
                                     onClick={checkoutHandler}>
-                                Checkout
+                                <span className="wbdv-checkout">Checkout</span>
                             </button>
                         </li>
                     </ul>
                 </div>
             </div>
 
+        </div>
         </div>
     )
 }
